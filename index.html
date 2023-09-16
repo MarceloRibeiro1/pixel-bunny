@@ -11,7 +11,7 @@
 
   <div id="root" style="display: flex">
     <canvas id="canvas" width="658" height="801"></canvas>
-    <div style="height: 801px;display: flex;justify-content: center;flex-direction: column;gap: 16px">
+    <div style="height: 600px;display: flex;justify-content: center;flex-direction: column;gap: 16px">
       <div>
         <input type="range" id="fps" name="fps" min="1" max="60" value="30" step="1" />
         <label for="fps">FPS: 30</label>
@@ -32,6 +32,13 @@
         <input type="range" id="point_density" name="point_density" min="4" max="20" value="10" step="1" />
         <label for="point_density">point_density: 10</label>
         <button id="point_density_reset">reset density</button>
+      </div>
+      <div>
+        <span>preset:</span>
+        <div style="display: flex">
+          <button id="preset_default">default</button>
+          <button id="preset_blocky">blocky</button>
+        </div>
       </div>
 
     </div>

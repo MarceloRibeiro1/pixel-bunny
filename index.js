@@ -2,6 +2,7 @@ const img = new Image();
 img.crossOrigin = "anonymous";
 img.src = "./bunny.png";
 const canvas = document.getElementById("canvas");
+const root = document.getElementById("root");
 const ctx = canvas.getContext("2d");
 let pixelBunny = [];
 
@@ -194,7 +195,7 @@ function render(time) {
   requestAnimationFrame(render);
 }
 
-canvas.addEventListener("mousemove", (event) => {
+root.addEventListener("mousemove", (event) => {
   const rect = canvas.getBoundingClientRect();
   mouseX = event.clientX - rect.left;
   mouseY = event.clientY - rect.top;
@@ -238,4 +239,51 @@ const point_size = document.getElementById("point_size");
 point_size.addEventListener("input", function() {
   POINT_SIZE = parseInt(point_size.value);
   point_size.nextElementSibling.textContent = 'point_size: ' + POINT_SIZE
+});
+
+
+const preset_default = document.getElementById("preset_default");
+preset_default.addEventListener("click", function() {
+  FRAMES_PER_SECOND = 30;
+  MOUSE_FORCE = 2;
+  MOUSE_RANGE = 60;
+  POINT_DENSITY = 10;
+  POINT_SIZE = 3;
+  FRAME_MIN_TIME =
+      (1000 / 60) * (60 / FRAMES_PER_SECOND) - (1000 / 60) * 0.5;
+
+  fps.nextElementSibling.textContent = 'FPS: ' + FRAMES_PER_SECOND
+  fps.value = FRAMES_PER_SECOND
+  mouse_force.nextElementSibling.textContent = 'mouse_force: ' + MOUSE_FORCE
+  mouse_force.value = MOUSE_FORCE
+  mouse_range.nextElementSibling.textContent = 'mouse_range: ' + MOUSE_RANGE
+  mouse_range.value = MOUSE_RANGE
+  point_density.nextElementSibling.textContent = 'point_density: ' + POINT_DENSITY
+  point_density.value = POINT_DENSITY
+  point_size.nextElementSibling.textContent = 'point_size: ' + POINT_SIZE
+  point_size.value = POINT_SIZE
+  loadBunny()
+});
+
+const preset_blocky = document.getElementById("preset_blocky");
+preset_blocky.addEventListener("click", function() {
+  FRAMES_PER_SECOND = 60;
+  MOUSE_FORCE = 3;
+  MOUSE_RANGE = 24;
+  POINT_DENSITY = 7;
+  POINT_SIZE = 5;
+  FRAME_MIN_TIME =
+      (1000 / 60) * (60 / FRAMES_PER_SECOND) - (1000 / 60) * 0.5;
+
+  fps.nextElementSibling.textContent = 'FPS: ' + FRAMES_PER_SECOND
+  fps.value = FRAMES_PER_SECOND
+  mouse_force.nextElementSibling.textContent = 'mouse_force: ' + MOUSE_FORCE
+  mouse_force.value = MOUSE_FORCE
+  mouse_range.nextElementSibling.textContent = 'mouse_range: ' + MOUSE_RANGE
+  mouse_range.value = MOUSE_RANGE
+  point_density.nextElementSibling.textContent = 'point_density: ' + POINT_DENSITY
+  point_density.value = POINT_DENSITY
+  point_size.nextElementSibling.textContent = 'point_size: ' + POINT_SIZE
+  point_size.value = POINT_SIZE
+  loadBunny()
 });
