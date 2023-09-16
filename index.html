@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Canvas</title>
+  <script type="module" src="index.js"></script>
+</head>
+
+<body style="margin: 0;">
+
+  <div id="root" style="display: flex">
+    <canvas id="canvas" width="658" height="801"></canvas>
+    <div style="height: 801px;display: flex;justify-content: center;flex-direction: column;gap: 16px">
+      <div>
+        <input type="range" id="fps" name="fps" min="1" max="60" value="30" step="1" />
+        <label for="fps">FPS: 30</label>
+      </div>
+      <div>
+        <input type="range" id="mouse_force" name="mouse_force" min="0" max="5" value="2" step="0.1" />
+        <label for="mouse_force">mouse_force: 2</label>
+      </div>
+      <div>
+        <input type="range" id="mouse_range" name="mouse_range" min="10" max="100" value="60" step="1" />
+        <label for="mouse_range">mouse_range: 60</label>
+      </div>
+      <div>
+        <input type="range" id="point_size" name="point_size" min="1" max="5" value="3" step="1" />
+        <label for="point_size">point_size: 3</label>
+      </div>
+      <div>
+        <input type="range" id="point_density" name="point_density" min="4" max="20" value="10" step="1" />
+        <label for="point_density">point_density: 10</label>
+        <button id="point_density_reset">reset density</button>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
